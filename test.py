@@ -14,9 +14,6 @@ def menu():
     start_button.grid(row=0, column=0, padx=5, pady=5)
 
 
-
-
-
 # main quiz program
 def quiz():
     menu_frame.destroy()  # destroy Menu
@@ -71,13 +68,7 @@ def quiz():
         except IndexError:
             point_label = ttk.Label(question_frame, text="Total Point:\n{}".format(point))
             point_label.grid(row=3, column=2)
-
-            def txt():
-                with open("answer.txt", "w") as f:
-                    f.write("Total points:{}".format(point))
-                    f.write(str(anime_prompt[next_question][5]))
-            file_button = ttk.Button(question_frame, text="Turn into TXT", command=txt)
-            file_button.grid(column=1, row=1, padx=5, pady=5)
+            answer.append(point_label)
 
     def clear_frame():
         # destroy all widgets from frame
@@ -96,7 +87,8 @@ def quiz():
     make_question()
 
 
-answer = []
+
+
 button = IntVar()
 point = 0
 next_question = 0
