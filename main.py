@@ -14,9 +14,6 @@ def menu():
     start_button.grid(row=0, column=0, padx=5, pady=5)
 
 
-
-
-
 # main quiz program
 def quiz():
     menu_frame.destroy()  # destroy Menu
@@ -36,8 +33,8 @@ def quiz():
         ["Man-eating giants terrorize a city.", "a. Hell's Paradise", "b. Attack On Titan", "c. Promised Neverland",
          "d. Giant Killing", 2],
         ["Man reincarnation turns him into a monster demon lord.", "a. Mushoku Tensei",
-         "b. That Time I Got Reincarnated as a Slime", "c. Overlord", "d. Goblin Slayer", 2],
-        ["Demon king reincarnation lead him to becoming a student.", "a. Seven Deadly Sin", "b. Demon Lord Daimao",
+         "b. That Time I Got Reincarnated as a Slime", "c. Sword Art Online", "d. Goblin Slayer", 2],
+        ["Demon king reincarnation lead him to becoming a student.", "a. Seven Deadly Sin", "b. Overlord",
          "c. How Not To Summon A Demon Lord", "d. Misfit Of Demon king Academy", 4],
         ["Boy captivated by the art of his senior gets inspired to start art.", "a. Kill La Kill",
          "b. Honey and Clover", "c. Blue Period", "d. Opus Color", 3]
@@ -75,9 +72,10 @@ def quiz():
             def txt():
                 with open("answer.txt", "w") as f:
                     f.write("Total points:{}".format(point))
-                    f.write(str(anime_prompt[next_question][5]))
-            file_button = ttk.Button(question_frame, text="Turn into TXT", command=txt)
-            file_button.grid(column=1, row=1, padx=5, pady=5)
+                    for i in range(len(anime_prompt)):
+                        f.write("\n")
+                        f.write(str(anime_prompt[i][anime_prompt[i][5]]))
+                        f.write("\n")
 
     def clear_frame():
         # destroy all widgets from frame
